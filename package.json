@@ -1,0 +1,45 @@
+{
+  "name": "markdown-it-obsidian-callouts",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Support Obsidian callouts and admonitions",
+  "author": "Erin Schnabel <ebullientworks@gmail.com>",
+  "funding": "https://www.buymeacoffee.com/ebullient",
+  "license": "Apache-2.0",
+  "bugs": "https://github.com/ebullient/markdown-it-obsidian-callouts/issues",
+  "homepage": "https://github.com/ebullient/markdown-it-obsidian-callouts#readme",
+  "repository": "github:ebullient/markdown-it-obsidian-callouts",
+  "keywords": [
+    "markdown-it-plugin",
+    "markdown-it",
+    "markdown",
+    "callouts",
+    "admonitions",
+    "obsidian"
+  ],
+  "main": "dist/mdit-obsidian-callouts.umd.js",
+  "module": "dist/mdit-obsidian-callouts.es.js",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vitest",
+    "preversion": "npm run test && npm run build",
+    "version": "auto-changelog -p && git add CHANGELOG.md",
+    "test": "vitest --run"
+  },
+  "peerDependencies": {
+    "markdown-it": "^14.0.0"
+  },
+  "devDependencies": {
+    "@types/markdown-it": "^13.0.7",
+    "auto-changelog": "^2.4.0",
+    "markdown-it-testgen": "^0.1.6",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.10",
+    "vitest": "^1.1.0"
+  },
+  "auto-changelog": {
+    "backfillLimit": false,
+    "commitLimit": false,
+    "ignoreCommitPattern": "(🔖|🔨|🧹|changelog|release|Update README).*"
+  }
+}
