@@ -81,6 +81,6 @@ jobs:
           ${{ github.event.repository.name }}-${{ steps.build.outputs.version }}.zip
 
     - name: Publish to NPM
-      run: npm publish --provenance --access public --tag ${{ steps.build.outputs.version }}
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      run: npm publish --provenance --access public
