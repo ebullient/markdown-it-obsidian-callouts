@@ -24,6 +24,7 @@
     "dev": "vitest",
     "preversion": "npm run test && npm run build",
     "version": "auto-changelog -p && git add CHANGELOG.md",
+    "release-notes": "run() { auto-changelog --stdout --hide-credit --hide-empty-releases --template .github/changelog.hbs -v $1 --starting-version $1  > release-notes.md; }; run",
     "test": "vitest --run"
   },
   "peerDependencies": {

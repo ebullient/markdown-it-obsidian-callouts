@@ -1,4 +1,4 @@
-name: Node.js Package
+name: Release package
 
 on:
   workflow_dispatch:
@@ -50,6 +50,8 @@ jobs:
 
         git commit -m "🔖 $VERSION"
         git tag $VERSION
+
+        npm run release-notes -- ${VERSION}
         echo "version=${VERSION}" >> $GITHUB_OUTPUT
 
     # Package the required files into a zip
