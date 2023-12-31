@@ -1,14 +1,21 @@
 {
   "name": "markdown-it-obsidian-callouts",
   "type": "module",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Support Obsidian callouts and admonitions",
   "author": "Erin Schnabel <ebullientworks@gmail.com>",
   "funding": "https://www.buymeacoffee.com/ebullient",
   "license": "Apache-2.0",
   "bugs": "https://github.com/ebullient/markdown-it-obsidian-callouts/issues",
   "homepage": "https://github.com/ebullient/markdown-it-obsidian-callouts#readme",
-  "repository": "github:ebullient/markdown-it-obsidian-callouts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ebullient/markdown-it-obsidian-callouts.git"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
   "keywords": [
     "markdown-it-plugin",
     "markdown-it",
@@ -23,7 +30,7 @@
     "build": "vite build",
     "dev": "vitest",
     "preversion": "npm run test && npm run build",
-    "version": "auto-changelog -p && git add CHANGELOG.md",
+    "version": "auto-changelog -p",
     "release-notes": "run() { auto-changelog --stdout --hide-credit --hide-empty-releases --template .github/changelog.hbs -v $1 --starting-version $1  > release-notes.md; }; run",
     "test": "vitest --run"
   },
