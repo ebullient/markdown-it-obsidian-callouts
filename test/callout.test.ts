@@ -27,7 +27,7 @@ test('mdItObsidianCallouts callout', ({ expect }) => {
 
 test('mdItObsidianCallouts callout with trailing whitespace', ({ expect }) => {
     const blockquoteResult = md.render(`
-> [!whitespace]  
+> [!whitespace]
 > Callout with trailing whitespace
 `);
     // console.log(blockquoteResult)
@@ -51,7 +51,7 @@ test('mdItObsidianCallouts callout with title', ({ expect }) => {
 
 test('mdItObsidianCallouts callout with title and trailing whitespace', ({ expect }) => {
     const blockquoteResult = md.render(`
-> [!whitespace] Title and whitespace  
+> [!whitespace] Title and whitespace
 > This is a callout with a title that has trailing whitespace
 `);
     // console.log(blockquoteResult)
@@ -59,4 +59,44 @@ test('mdItObsidianCallouts callout with title and trailing whitespace', ({ expec
     expect(blockquoteResult).toContain('class="callout"');
     expect(blockquoteResult).toContain('class="callout-title"');
     expect(blockquoteResult).toContain('class="callout-title-inner"');
+});
+
+test('mdItObsidianCallouts nested callout', ({ expect }) => {
+    const blockquoteResult = md.render(`
+> [!note] title
+> Hello World!
+> > [!warning] a warning
+> > This is a nested warning callout
+`);
+    console.log(blockquoteResult);
+    expect(blockquoteResult).not.toContain('<blockquote')
+    expect(blockquoteResult).toContain('<div class="callout-title">');
+    expect(blockquoteResult).toContain('<div class="callout-title-icon">');
+    expect(blockquoteResult).toContain('<div class="callout" data-callout="note">');
+    expect(blockquoteResult).toContain('<div class="callout" data-callout="warning">');
+    expect(blockquoteResult).toContain('<div class="callout-title-inner">title</div>');
+    expect(blockquoteResult).toContain('<div class="callout-content"><p>Hello World!</p>');
+    expect(blockquoteResult).toContain('<div class="callout-title-inner">a warning</div>');
+    expect(blockquoteResult).toContain('<div class="callout-content"><p>This is a nested warning callout</p>');
+});
+
+test('mdItObsidianCallouts nested code-block admonition', ({ expect }) => {
+    const blockquoteResult = md.render(`
+> [!note] title
+> Hello World!
+> ~~~ad-warning
+> title: a warning
+> This is a nested warning callout
+> ~~~
+`);
+    console.log(blockquoteResult);
+    expect(blockquoteResult).not.toContain('<blockquote')
+    expect(blockquoteResult).toContain('<div class="callout-title">');
+    expect(blockquoteResult).toContain('<div class="callout-title-icon">');
+    expect(blockquoteResult).toContain('<div class="callout" data-callout="note">');
+    expect(blockquoteResult).toContain('<div class="callout" data-callout="warning">');
+    expect(blockquoteResult).toContain('<div class="callout-title-inner">title</div>');
+    expect(blockquoteResult).toContain('<div class="callout-content"><p>Hello World!</p>');
+    expect(blockquoteResult).toContain('<div class="callout-title-inner">a warning</div>');
+    expect(blockquoteResult).toContain('<div class="callout-content"><p>This is a nested warning callout</p>');
 });

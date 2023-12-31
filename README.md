@@ -1,6 +1,95 @@
 # markdown-it-obsidian-callouts
 
-Extension for obsidian to support obsidian callouts and codeblock admonitions
+Extension for [Obsidian](https://obsidian.md) to support Obsidian callouts and codeblock admonitions care of the [Admonition plugin](https://github.com/javalent/admonitions).
+
+It uses Obsidian default icons and callout flavors out of the gate.
+
+## Usage
+
+```javascript
+const markdownIt = require('markdown-it');
+const mdItObsidianCallouts = require('markdown-it-obsidian-callouts');
+
+const md = new MarkdownIt()
+md.use(mdItObsidianCallouts);
+```
+
+## Callouts and Admonitions
+
+The following four variations will produce the same html.
+
+Callout:
+
+```md
+> [!note] title
+> Hello World!
+> > [!warning] a warning
+> > This is a nested warning callout
+```
+
+A callout with nested code-block admonition:
+
+```md
+> [!note] title
+> Hello World!
+> ~~~ad-warning
+> title: a warning
+> This is a nested warning callout
+> ~~~
+```
+
+Code-block admonition with nested callout: 
+
+```md
+~~~ad-note
+title: title
+Hello World!
+> [!warning] a warning
+> This is a nested warning callout
+~~~
+```
+
+Code-block admonition with nested code-block admonition: 
+
+```md
+~~~~ad-note
+title: title
+Hello World!
+~~~ad-warning
+title: a warning
+This is a nested warning callout
+~~~
+~~~~
+```
+
+The above nested admonition will generate the following html (it will sadly be less tidy):
+
+```html
+<div class="callout" data-callout="note">
+  <div class="callout-title">
+    <div class="callout-title-icon">
+      <svg ... class="lucide lucide-pencil"> ... </svg>
+    </div>
+    <div class="callout-title-inner">title</div>
+  </div>
+  <div class="callout-content">
+    <p>Hello World!</p>
+    <div class="callout" data-callout="warning">
+      <div class="callout-title">
+        <div class="callout-title-icon">
+          <svg ... class="lucide lucide-alert-triangle"> ... </svg>
+        </div>
+        <div class="callout-title-inner">a warning</div>
+      </div>
+      <div class="callout-content">
+        <p>This is a nested warning callout</p>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+This emulates Obsidian callout behavior. The element structure amd CSS classes are the same, some mechanics are different.
 
 ## Icons
 
