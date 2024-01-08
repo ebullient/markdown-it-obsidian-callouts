@@ -65,7 +65,7 @@ test('mdItObsidianCallouts nested callout', ({ expect }) => {
     const blockquoteResult = md.render(`
 > [!note] title
 > Hello World!
-> > [!warning] a warning
+> > [!WARNING] a warning
 > > This is a nested warning callout
 `);
     console.log(blockquoteResult);

@@ -51,7 +51,7 @@ export interface MdItObsidianCalloutsOptions {
 // Define your plugin
 function mdItObsidianCallouts(md: MarkdownIt, options: MdItObsidianCalloutsOptions): void {
   console.log('mdItObsidianCallouts plugin loaded', options);
-  
+
   // Save the original rule
   const bqOpenRender = md.renderer.rules.blockquote_open || function (tokens, idx, options, env, self) {
     return self.renderToken(tokens, idx, options);
@@ -111,10 +111,10 @@ export function inspectFencedCodeContent(token: Token, md: MarkdownIt, options: 
   const match = token.info.replace(options.langPrefix || '', '').match(admonition);
   if (match) {
     token.attrPush(['class', 'callout']);
-    token.attrPush(['data-callout', match[1]]);
+    token.attrPush(['data-callout', match[1].toLowerCase()]);
 
     // Split the content by newline
-    // Iterate over lines: 
+    // Iterate over lines:
     // if the line matches an admontion header, add the attribute and remove the line
     // otherwise, stop iterating
     let lines = token.content.split('\n');
@@ -186,7 +186,7 @@ export function inspectBlockquoteContent(tokens: any, startIdx: number): string 
   const match = content.match(callout);
   if (match) {
     bq_open.attrPush(['class', 'callout']);
-    bq_open.attrPush(['data-callout', match[1]]);
+    bq_open.attrPush(['data-callout', match[1].toLowerCase()]);
     bq_close.attrPush(['data-callout', match[1]]);
     if (match[2]) {
       bq_open.attrPush(['data-callout-title', match[2]]);
