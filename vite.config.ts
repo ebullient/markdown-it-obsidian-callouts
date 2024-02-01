@@ -5,7 +5,10 @@ export default defineConfig({
     lib: {
       entry: 'src/index.ts',
       name: 'MdItObsidianCallouts',
-      fileName: (format) => `mdit-obsidian-callouts.${format}.js`
+      formats: ['es', 'cjs'],
+      fileName: (format) => format == 'es'
+        ? `mdit-obsidian-callouts.js`
+        : `mdit-obsidian-callouts.cjs`,
     },
     rollupOptions: {
       // Ensure that your library is compatible with other packages
