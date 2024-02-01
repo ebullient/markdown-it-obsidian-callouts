@@ -1,6 +1,6 @@
 {
   "name": "markdown-it-obsidian-callouts",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Support Obsidian callouts and admonitions",
   "author": "Erin Schnabel <ebullientworks@gmail.com>",
   "funding": "https://www.buymeacoffee.com/ebullient",
@@ -27,10 +27,10 @@
   "main": "dist/mdit-obsidian-callouts.cjs",
   "module": "dist/mdit-obsidian-callouts.js",
   "exports": {
-      ".": {
-          "import": "./dist/mdit-obsidian-callouts.js",
-          "require": "./dist/mdit-obsidian-callouts.cjs"
-      }
+    ".": {
+      "import": "./dist/mdit-obsidian-callouts.js",
+      "require": "./dist/mdit-obsidian-callouts.cjs"
+    }
   },
   "scripts": {
     "build": "vite build",
