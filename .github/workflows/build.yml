@@ -6,11 +6,13 @@ on:
     paths:
       - '**.ts'
       - '**.yml'
+      - 'package*.json'
   pull_request:
     branches: [ main ]
     paths:
       - '**.ts'
       - '**.yml'
+      - 'package*.json'
 
 permissions: read-all
 
