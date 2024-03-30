@@ -1,6 +1,6 @@
 # markdown-it-obsidian-callouts
 
-Extension for markdown-it to support GitHub and Obsidian callouts, 
+Plugin for markdown-it to support GitHub and Obsidian callouts, 
 as well as codeblock admonitions supported by the [Admonition plugin](https://github.com/javalent/admonitions).
 
 It uses Obsidian default icons and callout flavors out of the gate.
