@@ -44,7 +44,7 @@
     "markdown-it": "^14.0.0"
   },
   "devDependencies": {
-    "@types/markdown-it": "^13.0.7",
+    "@types/markdown-it": "^14.0.0",
     "auto-changelog": "^2.4.0",
     "markdown-it-testgen": "^0.1.6",
     "typescript": "^5.3.3",
