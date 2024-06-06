@@ -133,14 +133,14 @@ export function inspectBlockquoteContent(iterable: Token[], startIdx: number) {
     }
 }
 
-export function renderCalloutPrefix(token: Token): string {
+export function renderCalloutPrefix(token: Token, options: MdItObsidianCalloutsOptions = {}): string {
     const callout = token.attrGet('data-callout');
     if (callout) {
         return `
 <div class="callout" data-callout="${callout}">
 <div class="callout-title">
 <div class="callout-title-icon">
-${getIcon(token)}
+${getIcon(token, options)}
 </div>
 <div class="callout-title-inner">${getTitle(token)}</div>
 </div>
@@ -149,14 +149,14 @@ ${getIcon(token)}
     return '';
 }
 
-function getIcon(token: Token) {
+function getIcon(token: Token, options: MdItObsidianCalloutsOptions = {}) {
     const icon = token.attrGet('data-callout-icon');
     if (icon) {
         return icon.trim();
     }
     const callout = token.attrGet('data-callout');
     if (callout) {
-        return DEFAULT_OBSIDIAN_ICONS[callout] || DEFAULT_OBSIDIAN_ICONS.note;
+        return options.icons?.[callout] || DEFAULT_OBSIDIAN_ICONS[callout] || DEFAULT_OBSIDIAN_ICONS.note;
     }
     return '';
 }
