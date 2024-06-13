@@ -5,8 +5,6 @@ import { inspectBlockquoteContent, inspectFencedCodeContent, renderCalloutPrefix
 
 // Define your plugin
 export default function mdItObsidianCallouts(md: MarkdownIt, options: MdItObsidianCalloutsOptions = {}): void {
-    console.log('mdItObsidianCallouts plugin loaded with options', options);
-
     md.core.ruler.after('block', 'obsidian-callouts', (state) => {
         const tokens = state.tokens;
         for (let i = 0; i < tokens.length; i++) {
