@@ -100,6 +100,18 @@ Version 0.268.0
 ISC License  
 Copyright (c) 2020, Lucide Contributors  
 
+## Add css
+
+If you use it in other environments like vuepress/vitepress, you may need to add your own css, as this plugin only generates dom structures.
+
+You can use the [index.css](./style/index.css), The css content is exactly the same as the style of the callout in obsidian (I screened, copied, pasted and modified it from ob). And I adapted the shading mode for vuepress and vitepress.
+
+> [!note]
+> 
+> Why not set the default style to make it easier to use?
+> 
+> If you want to default the style in markdown-it, you can only set it on the dom style through property Settings, which can make custom changes difficult
+
 ## Similar plugins
 
 - https://github.com/alexjv89/markdown-it-obsidian - add suport for obsidian wikilinks
