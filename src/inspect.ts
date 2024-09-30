@@ -115,13 +115,13 @@ export function inspectBlockquoteContent(iterable: Token[], startIdx: number) {
     const match = content.match(callout);
     if (match && startIdx != endIdx) {
         const calloutType = match[1].toLowerCase();
-        const calloutFold = match[2]
+        const calloutFold = match[2];
         const calloutTitle = match[3];
 
         iterable[startIdx].type = 'callout_open';
         iterable[startIdx].attrPush(['class', 'callout']);
         iterable[startIdx].attrPush(['data-callout', calloutType]);
-        iterable[startIdx].attrPush(['data-callout-fold', calloutFold])
+        iterable[startIdx].attrPush(['data-callout-fold', calloutFold]);
         if (calloutTitle) {
             iterable[startIdx].attrPush(['data-callout-title', calloutTitle]);
         }
@@ -138,7 +138,7 @@ export function inspectBlockquoteContent(iterable: Token[], startIdx: number) {
 
 export function renderCalloutPrefix(token: Token, options: MdItObsidianCalloutsOptions = {}): string {
     const callout = token.attrGet('data-callout');
-    const fold = token.attrGet('data-callout-fold')
+    const fold = token.attrGet('data-callout-fold');
     if (callout && fold) {
         return `
 <details class="callout" data-callout="${callout}" data-callout-fold="${fold}"${fold === '+' ? ' open' : ''}>
@@ -166,13 +166,13 @@ ${getIcon(token, options)}
 
 export function renderCalloutPostfix(token: Token, options: MdItObsidianCalloutsOptions = {}): string {
     const callout = token.attrGet('data-callout');
-    const fold = token.attrGet('data-callout-fold')
+    const fold = token.attrGet('data-callout-fold');
     if (callout && fold) {
-        return '</div></details>'
+        return '</div></details>';
     } else if (callout) {
-        return '</div></div>'
+        return '</div></div>';
     }
-    return ''
+    return '';
 }
 
 function getIcon(token: Token, options: MdItObsidianCalloutsOptions = {}) {
