@@ -139,7 +139,7 @@ html[data-theme="dark"] #app {
     --callout-color: var(--callout-tip);
     --callout-icon: lucide-flame;
   }
-  &callout[data-callout="example"] {
+  &[data-callout="example"] {
     --callout-color: var(--callout-example);
     --callout-icon: lucide-list;
   }
