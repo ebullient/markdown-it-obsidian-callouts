@@ -33,7 +33,7 @@ DEFAULT_OBSIDIAN_ICONS.missing = DEFAULT_OBSIDIAN_ICONS.failure;
 DEFAULT_OBSIDIAN_ICONS.summary = DEFAULT_OBSIDIAN_ICONS.abstract;
 DEFAULT_OBSIDIAN_ICONS.tldr = DEFAULT_OBSIDIAN_ICONS.abstract;
 
-const callout = /^\[!([^\]]+)\][- ]*(.*)? */;
+const callout = /^\[!([^\]]+)\](\+|-|) *(.*)? */;
 const admonition = /^ad-([^\s]+) */;
 const admonitionHeader = /^(title|collapse|icon|color):(.*)/;
 const headerToAttr: Record<string, string> = {
@@ -115,17 +115,20 @@ export function inspectBlockquoteContent(iterable: Token[], startIdx: number) {
     const match = content.match(callout);
     if (match && startIdx != endIdx) {
         const calloutType = match[1].toLowerCase();
-        const calloutTitle = match[2];
+        const calloutFold = match[2]
+        const calloutTitle = match[3];
 
         iterable[startIdx].type = 'callout_open';
         iterable[startIdx].attrPush(['class', 'callout']);
         iterable[startIdx].attrPush(['data-callout', calloutType]);
+        iterable[startIdx].attrPush(['data-callout-fold', calloutFold])
         if (calloutTitle) {
             iterable[startIdx].attrPush(['data-callout-title', calloutTitle]);
         }
 
         iterable[endIdx].type = 'callout_close';
         iterable[endIdx].attrPush(['data-callout', calloutType]);
+        iterable[endIdx].attrPush(['data-callout-fold', calloutFold]);
 
         if (contentIdx != startIdx && iterable[contentIdx] && iterable[contentIdx].children) {
             iterable[contentIdx].content = iterable[contentIdx].content.replace(callout, '').trim();
@@ -135,7 +138,19 @@ export function inspectBlockquoteContent(iterable: Token[], startIdx: number) {
 
 export function renderCalloutPrefix(token: Token, options: MdItObsidianCalloutsOptions = {}): string {
     const callout = token.attrGet('data-callout');
-    if (callout) {
+    const fold = token.attrGet('data-callout-fold')
+    if (callout && fold) {
+        return `
+<details class="callout" data-callout="${callout}" data-callout-fold="${fold}"${fold === '+' ? ' open' : ''}>
+<summary class="callout-title">
+<div class="callout-title-icon">
+${getIcon(token, options)}
+</div>
+<div class="callout-title-inner">${getTitle(token)}</div>
+<div class="callout-fold"></div>
+</summary>
+<div class="callout-content">`;
+    } else if (callout) {
         return `
 <div class="callout" data-callout="${callout}">
 <div class="callout-title">
@@ -147,6 +162,17 @@ ${getIcon(token, options)}
 <div class="callout-content">`;
     }
     return '';
+}
+
+export function renderCalloutPostfix(token: Token, options: MdItObsidianCalloutsOptions = {}): string {
+    const callout = token.attrGet('data-callout');
+    const fold = token.attrGet('data-callout-fold')
+    if (callout && fold) {
+        return '</div></details>'
+    } else if (callout) {
+        return '</div></div>'
+    }
+    return ''
 }
 
 function getIcon(token: Token, options: MdItObsidianCalloutsOptions = {}) {
