@@ -30,7 +30,7 @@ export default function mdItObsidianCallouts(md: MarkdownIt, options: MdItObsidi
     }
 
     md.renderer.rules.callout_close = function (tokens, idx) {
-        const token = tokens[idx]
+        const token = tokens[idx];
         return renderCalloutPostfix(token, options);
     }
 }
