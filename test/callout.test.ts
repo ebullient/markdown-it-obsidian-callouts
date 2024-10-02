@@ -87,6 +87,23 @@ test('mdItObsidianCallouts nested callout', ({ expect }) => {
     expect(blockquoteResult).toContain('<div class="callout-content"><p>This is a nested <strong>warning</strong> callout</p>');
 });
 
+test('mdItObsidianCallouts nested callout with markdown', ({ expect }) => {
+    const blockquoteResult = md.render(`
+> [!note] **a strong title**
+> Hello *World*!
+> > [!WARNING] ***a strong and italic warning***
+> > This is a nested **warning** callout
+`);
+    console.log(blockquoteResult);
+    expect(blockquoteResult).not.toContain('blockquote')
+    expect(blockquoteResult).not.toContain('[!note] title')
+    expect(blockquoteResult).not.toContain('[!WARNING] a warning')
+    expect(blockquoteResult).toContain('<div class="callout-title-inner"><strong>a strong title</strong></div>');
+    expect(blockquoteResult).toContain('<div class="callout-content"><p>Hello <em>World</em>!</p>');
+    expect(blockquoteResult).toContain('<div class="callout-title-inner"><em><strong>a strong and italic warning</strong></em></div>');
+    expect(blockquoteResult).toContain('<div class="callout-content"><p>This is a nested <strong>warning</strong> callout</p>');
+});
+
 test('mdItObsidianCallouts nested code-block admonition', ({ expect }) => {
     const blockquoteResult = md.render(`
 > [!note] title

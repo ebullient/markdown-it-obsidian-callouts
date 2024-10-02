@@ -133,7 +133,7 @@ export function inspectBlockquoteContent(iterable: Token[], startIdx: number) {
     }
 }
 
-export function renderCalloutPrefix(token: Token, options: MdItObsidianCalloutsOptions = {}): string {
+export function renderCalloutPrefix(token: Token, md: MarkdownIt, options: MdItObsidianCalloutsOptions = {}): string {
     const callout = token.attrGet('data-callout');
     if (callout) {
         return `
@@ -142,7 +142,7 @@ export function renderCalloutPrefix(token: Token, options: MdItObsidianCalloutsO
 <div class="callout-title-icon">
 ${getIcon(token, options)}
 </div>
-<div class="callout-title-inner">${getTitle(token)}</div>
+<div class="callout-title-inner">${getTitle(token, md)}</div>
 </div>
 <div class="callout-content">`;
     }
@@ -161,10 +161,11 @@ function getIcon(token: Token, options: MdItObsidianCalloutsOptions = {}) {
     return '';
 }
 
-function getTitle(token: Token) {
+function getTitle(token: Token, md: MarkdownIt) {
     const title = token.attrGet('data-callout-title');
     if (title) {
-        return title.trim();
+        // Use the md instance passed upon plugin definition
+        return md.renderInline(title.trim());
     }
     const callout = token.attrGet('data-callout');
     if (callout) {
