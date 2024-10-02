@@ -20,12 +20,12 @@ export default function mdItObsidianCallouts(md: MarkdownIt, options: MdItObsidi
 
     md.renderer.rules.callout_open = function (tokens, idx) {
         const token = tokens[idx];
-        return renderCalloutPrefix(token, options);
+        return renderCalloutPrefix(token, md, options);
     }
 
     md.renderer.rules.admonition_block = function (tokens, idx) {
         const token = tokens[idx];
-        return renderCalloutPrefix(token, options)
+        return renderCalloutPrefix(token, md, options)
             + `${token.content}\n</div>\n</div>`;
     }
 
