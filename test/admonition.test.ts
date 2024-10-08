@@ -49,6 +49,28 @@ Hello World!
     expect(codeblockResult).toContain('<div class="callout-content"><p>This is a nested warning callout</p>');
 });
 
+test('admonition has a nested folded callout, content is rendered', ({ expect }) => {
+    const codeblockResult = md.render(`
+~~~ad-note
+title: title
+Hello World!
+> [!warning]- a warning
+> This is a nested warning callout
+~~~
+`);
+    console.log(codeblockResult)
+    expect(codeblockResult).not.toContain('<pre>');
+    expect(codeblockResult).toContain('<div class="callout-title">');
+    expect(codeblockResult).toContain('<div class="callout-title-icon">');
+    expect(codeblockResult).toContain('<div class="callout" data-callout="note">');
+    expect(codeblockResult).toContain('<details class="callout" data-callout="warning" data-callout-fold="-">');
+    expect(codeblockResult).toContain('<summary class="callout-title">');
+    expect(codeblockResult).toContain('<div class="callout-title-inner">title</div>');
+    expect(codeblockResult).toContain('<div class="callout-content"><p>Hello World!</p>');
+    expect(codeblockResult).toContain('<div class="callout-title-inner">a warning</div>');
+    expect(codeblockResult).toContain('<div class="callout-content"><p>This is a nested warning callout</p>');
+    expect(codeblockResult).toContain('</div></details>');
+});
 
 test('admonition has a nested admonition, content is rendered', ({ expect }) => {
     const codeblockResult = md.render(`
