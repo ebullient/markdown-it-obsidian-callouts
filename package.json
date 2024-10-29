@@ -1,6 +1,6 @@
 {
   "name": "markdown-it-obsidian-callouts",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Support Obsidian callouts and admonitions",
   "author": "Erin Schnabel <ebullientworks@gmail.com>",
   "funding": "https://www.buymeacoffee.com/ebullient",
