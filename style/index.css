@@ -1,7 +1,17 @@
 /**
+ * You can only edit `scss` version.
+ * And use vscode plugin auto generate the `css` and `.min.css` version.
+ * ~~If you don't have a vscode environment, you can use github.dev~~
+ *
+ * plugin:
+ * - Live Sass Compiler (author: Glenn Marks)
+ * - ~~Easy Sass (author: Wojciech Sura)~~ (Five years. bug)
+ */
+/**
  * Color about
  */
-:root {
+ :root {
+  --bold-modifier: 200;
   --line-height-tight: 1.3;
   --callout-border-width: 0px;
   --callout-border-opacity: 0.25;
@@ -39,11 +49,11 @@
   --callout-blend-mode: var(lighten);
 }
 
-html[data-theme="light"] #app {
+html[data-theme=light] #app {
   --callout-blend-mode: var(darken);
 }
 
-html[data-theme="dark"] #app {
+html[data-theme=dark] #app {
   --callout-blend-mode: var(lighten);
 }
 
@@ -65,35 +75,11 @@ html[data-theme="dark"] #app {
   --callout-color: var(--callout-default);
   --callout-icon: lucide-pencil;
 }
-
-.callout .callout-title {
-  padding: var(--callout-title-padding);
-  display: flex;
-  gap: 4px;
-  font-size: var(--callout-title-size);
-  color: rgb(var(--callout-color));
-  line-height: var(--line-height-tight);
-  align-items: flex-start;
-}
-
 details.callout .callout-title {
   margin: 0;
   cursor: pointer;
 }
-
-.callout .callout-title .callout-icon {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-}
-
-.callout .callout-title .callout-title-inner {
-  --font-weight: var(--callout-title-weight);
-  font-weight: var(--font-weight);
-  color: var(--callout-title-color);
-}
-
-.callout .callout-title .callout-fold {
+details.callout .callout-title .callout-fold {
   background-color: rgb(var(--callout-color));
   mask-image: var(--callout-collapse-icon);
   mask-size: 100%;
@@ -112,48 +98,64 @@ details[open].callout > .callout-title > .callout-fold {
   transform: rotate(90deg);
 }
 
+.callout .callout-title {
+  padding: var(--callout-title-padding);
+  display: flex;
+  gap: 4px;
+  font-size: var(--callout-title-size);
+  color: rgb(var(--callout-color));
+  line-height: var(--line-height-tight);
+  align-items: flex-start;
+}
+.callout .callout-title .callout-icon {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+}
+.callout .callout-title .callout-title-inner {
+  --font-weight: var(--callout-title-weight);
+  font-weight: var(--font-weight);
+  color: var(--callout-title-color);
+}
+.callout .callout-title .callout-title-inner b,
+.callout .callout-title .callout-title-inner strong {
+  --font-weight: calc(var(--callout-title-weight) + var(--bold-modifier));
+  font-weight: var(--font-weight);
+}
 .callout .callout-content {
   overflow-x: auto;
   padding: var(--callout-content-padding);
   background-color: var(--callout-content-background);
 }
-
-.callout[data-callout="todo"] {
+.callout[data-callout=todo] {
   --callout-color: var(--callout-todo);
   --callout-icon: lucide-check-circle-2;
 }
-
-.callout[data-callout="success"], .callout[data-callout="check"], .callout[data-callout="done"] {
+.callout[data-callout=success], .callout[data-callout=check], .callout[data-callout=done] {
   --callout-color: var(--callout-success);
   --callout-icon: lucide-check;
 }
-
-.callout[data-callout="warning"], .callout[data-callout="caution"], .callout[data-callout="attention"] {
+.callout[data-callout=warning], .callout[data-callout=caution], .callout[data-callout=attention] {
   --callout-color: var(--callout-warning);
   --callout-icon: lucide-alert-triangle;
 }
-
-.callout[data-callout="danger"], .callout[data-callout="error"] {
+.callout[data-callout=danger], .callout[data-callout=error] {
   --callout-color: var(--callout-error);
   --callout-icon: lucide-zap;
 }
-
-.callout[data-callout="tip"], .callout[data-callout="hint"] {
+.callout[data-callout=tip], .callout[data-callout=hint] {
   --callout-color: var(--callout-tip);
   --callout-icon: lucide-flame;
 }
-
-.callout[data-callout="example"] {
+.callout[data-callout=example] {
   --callout-color: var(--callout-example);
   --callout-icon: lucide-list;
 }
-
-.callout[data-callout="abstract"], .callout[data-callout="summary"], .callout[data-callout="tldr"] {
+.callout[data-callout=abstract], .callout[data-callout=summary], .callout[data-callout=tldr] {
   --callout-color: var(--callout-summary);
   --callout-icon: lucide-clipboard-list;
 }
-
-.callout[data-callout="quote"], .callout[data-callout="cite"] {
+.callout[data-callout=quote], .callout[data-callout=cite] {
   --callout-color: var(--callout-quote);
   --callout-icon: quote-glyph;
-}
+}/*# sourceMappingURL=index.css.map */

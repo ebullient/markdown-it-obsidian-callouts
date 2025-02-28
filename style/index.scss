@@ -1,7 +1,17 @@
 /**
+ * You can only edit `scss` version.
+ * And use vscode plugin auto generate the `css` and `.min.css` version.
+ * ~~If you don't have a vscode environment, you can use github.dev~~
+ *
+ * plugin:
+ * - Live Sass Compiler (author: Glenn Marks)
+ * - ~~Easy Sass (author: Wojciech Sura)~~ (Five years. bug)
+ */
+
+/**
  * Color about
  */
-:root {
+ :root {
   --bold-modifier: 200;
   --line-height-tight: 1.3;
   --callout-border-width: 0px;
