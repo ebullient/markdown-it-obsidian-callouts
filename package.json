@@ -33,7 +33,11 @@
     }
   },
   "scripts": {
-    "build": "vite build",
+    "build": "npm run build:css && vite build",
+    "build:css": "npm run build:scss && npm run build:mincss",
+    "build:scss": "sass style/index.scss style/index.css",
+    "build:mincss": "sass --style=compressed style/index.scss style/index.min.css",
+    "build:js": "vite build",
     "dev": "vitest",
     "preversion": "npm run test && npm run build",
     "version": "auto-changelog -p",
@@ -45,8 +49,10 @@
   },
   "devDependencies": {
     "@types/markdown-it": "^14.0.1",
+    "@types/node": "^22.13.8",
     "auto-changelog": "^2.4.0",
     "markdown-it-testgen": "^0.1.6",
+    "sass": "^1.85.1",
     "typescript": "^5.3.3",
     "vite": "^6.0.2",
     "vitest": "^3.0.2"
