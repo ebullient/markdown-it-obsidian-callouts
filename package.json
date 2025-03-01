@@ -11,10 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/ebullient/markdown-it-obsidian-callouts.git"
   },
-  "files": [
-    "dist",
-    "src"
-  ],
+  "files": ["dist", "src"],
   "keywords": [
     "markdown-it-plugin",
     "markdown-it",
@@ -33,8 +30,15 @@
     }
   },
   "scripts": {
-    "build": "vite build",
+    "build": "npm run build:css && vite build",
+    "build:css": "npm run build:scss && npm run build:mincss",
+    "build:scss": "sass style/index.scss style/index.css",
+    "build:mincss": "sass --style=compressed style/index.scss style/index.min.css",
+    "build:js": "vite build",
     "dev": "vitest",
+    "check": "npx biome check .",
+    "format": "npx biome format .",
+    "lint": "npx biome lint .",
     "preversion": "npm run test && npm run build",
     "version": "auto-changelog -p",
     "release-notes": "run() { auto-changelog --stdout --hide-credit --hide-empty-releases --template .github/changelog.hbs -v $1 --starting-version $1  > release-notes.md; }; run",
@@ -44,9 +48,12 @@
     "markdown-it": "^14.0.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "@types/markdown-it": "^14.0.1",
+    "@types/node": "^22.13.8",
     "auto-changelog": "^2.4.0",
     "markdown-it-testgen": "^0.1.6",
+    "sass": "^1.85.1",
     "typescript": "^5.3.3",
     "vite": "^6.0.2",
     "vitest": "^3.0.2"
