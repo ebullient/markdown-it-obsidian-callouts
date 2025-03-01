@@ -1,16 +1,13 @@
 /**
  * You can only edit `scss` version.
- * And use vscode plugin auto generate the `css` and `.min.css` version.
- * ~~If you don't have a vscode environment, you can use github.dev~~
- *
- * plugin:
- * - Live Sass Compiler (author: Glenn Marks)
- * - ~~Easy Sass (author: Wojciech Sura)~~ (Five years. bug)
+ * use `npm run build` to build everything.
+ * use `npm run build:css`  to build css from scss
+ * The Explorer 'NPM Scripts' view will let you run these with one click.
  */
 /**
  * Color about
  */
- :root {
+:root {
   --bold-modifier: 200;
   --line-height-tight: 1.3;
   --callout-border-width: 0px;
@@ -59,7 +56,7 @@ html[data-theme=dark] #app {
 
 /**
  * Obsidian callout about
- * 
+ *
  * The following style is exactly the same as in obsidian
  */
 .callout {
@@ -158,4 +155,6 @@ details[open].callout > .callout-title > .callout-fold {
 .callout[data-callout=quote], .callout[data-callout=cite] {
   --callout-color: var(--callout-quote);
   --callout-icon: quote-glyph;
-}/*# sourceMappingURL=index.css.map */
+}
+
+/*# sourceMappingURL=index.css.map */
