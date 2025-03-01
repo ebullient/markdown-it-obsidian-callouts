@@ -11,10 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/ebullient/markdown-it-obsidian-callouts.git"
   },
-  "files": [
-    "dist",
-    "src"
-  ],
+  "files": ["dist", "src"],
   "keywords": [
     "markdown-it-plugin",
     "markdown-it",
@@ -39,6 +36,9 @@
     "build:mincss": "sass --style=compressed style/index.scss style/index.min.css",
     "build:js": "vite build",
     "dev": "vitest",
+    "check": "npx biome check .",
+    "format": "npx biome format .",
+    "lint": "npx biome lint .",
     "preversion": "npm run test && npm run build",
     "version": "auto-changelog -p",
     "release-notes": "run() { auto-changelog --stdout --hide-credit --hide-empty-releases --template .github/changelog.hbs -v $1 --starting-version $1  > release-notes.md; }; run",
@@ -48,6 +48,7 @@
     "markdown-it": "^14.0.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "@types/markdown-it": "^14.0.1",
     "@types/node": "^22.13.8",
     "auto-changelog": "^2.4.0",
