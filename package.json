@@ -50,7 +50,7 @@
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@types/markdown-it": "^14.0.1",
-    "@types/node": "^22.13.8",
+    "@types/node": "^24.0.3",
     "auto-changelog": "^2.4.0",
     "markdown-it-testgen": "^0.1.6",
     "sass": "^1.85.1",
