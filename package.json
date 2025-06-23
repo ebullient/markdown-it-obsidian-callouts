@@ -48,7 +48,7 @@
     "markdown-it": "^14.0.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
+    "@biomejs/biome": "2.0.4",
     "@types/markdown-it": "^14.0.1",
     "@types/node": "^24.0.3",
     "auto-changelog": "^2.4.0",
