@@ -11,7 +11,10 @@
     "type": "git",
     "url": "git+https://github.com/ebullient/markdown-it-obsidian-callouts.git"
   },
-  "files": ["dist", "src"],
+  "files": [
+    "dist",
+    "src"
+  ],
   "keywords": [
     "markdown-it-plugin",
     "markdown-it",

@@ -110,7 +110,6 @@ export function inspectBlockquoteContent(iterable: Token[], startIdx: number) {
         // TODO: with rule, nested blockquotes may never be a thing
         if (blockquoteDepth === 0) {
             break;
-            // biome-ignore lint/style/noUselessElse: blockquoteDepth can be 1
         } else if (blockquoteDepth > 1) {
             continue;
         }
@@ -175,7 +174,6 @@ ${getIcon(token, options)}
 <div class="callout-fold"></div>
 </summary>
 <div class="callout-content">`;
-        // biome-ignore lint/style/noUselessElse: callout can be false
     } else if (callout) {
         return `
 <div class="callout" data-callout="${callout}">
@@ -192,13 +190,12 @@ ${getIcon(token, options)}
 
 export function renderCalloutPostfix(
     token: Token,
-    options: MdItObsidianCalloutsOptions = {},
+    _options: MdItObsidianCalloutsOptions = {},
 ): string {
     const callout = token.attrGet("data-callout");
     const fold = token.attrGet("data-callout-fold");
     if (callout && fold) {
         return "</div></details>";
-        // biome-ignore lint/style/noUselessElse: callout can be false
     } else if (callout) {
         return "</div></div>";
     }
