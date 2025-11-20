@@ -67,8 +67,6 @@ html[data-theme=dark] #app {
   mix-blend-mode: var(--callout-blend-mode);
   background-color: rgba(var(--callout-color), 0.1);
   padding: var(--callout-padding);
-  --callout-color: var(--callout-default);
-  --callout-icon: lucide-pencil;
 }
 details.callout .callout-title {
   margin: 0;
@@ -121,6 +119,10 @@ details[open].callout > .callout-title > .callout-fold {
   overflow-x: auto;
   padding: var(--callout-content-padding);
   background-color: var(--callout-content-background);
+}
+.callout {
+  --callout-color: var(--callout-default);
+  --callout-icon: lucide-pencil;
 }
 .callout[data-callout=todo] {
   --callout-color: var(--callout-todo);
