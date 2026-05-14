@@ -71,7 +71,7 @@ When using GitHub Codespaces or another editor:
     ```bash
     npm run dev
     ```
-    
+
 3. Run a full check and build before committing:
 
     ```bash
