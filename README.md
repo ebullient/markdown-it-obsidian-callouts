@@ -98,7 +98,7 @@ Default icons are as used by obsidian, and come from [lucide.dev](https://lucide
 
 Version 0.268.0  
 ISC License  
-Copyright (c) 2020, Lucide Contributors  
+Copyright (c) 2020, Lucide Contributors
 
 ## Add css
 
