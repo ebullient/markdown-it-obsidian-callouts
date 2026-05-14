@@ -9,7 +9,7 @@
   "homepage": "https://github.com/ebullient/markdown-it-obsidian-callouts#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ebullient/markdown-it-obsidian-callouts.git"
+    "url": "https://github.com/ebullient/markdown-it-obsidian-callouts"
   },
   "files": [
     "dist",
