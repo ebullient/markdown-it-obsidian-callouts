@@ -1,6 +1,6 @@
 # markdown-it-obsidian-callouts
 
-Plugin for markdown-it to support GitHub and Obsidian callouts, 
+Plugin for markdown-it to support GitHub and Obsidian callouts,
 as well as codeblock admonitions supported by the [Admonition plugin](https://github.com/javalent/admonitions).
 
 It uses Obsidian default icons and callout flavors out of the gate.
@@ -39,7 +39,7 @@ A callout with nested code-block admonition:
 > ~~~
 ```
 
-Code-block admonition with nested callout: 
+Code-block admonition with nested callout:
 
 ```md
 ~~~ad-note
@@ -50,7 +50,7 @@ Hello World!
 ~~~
 ```
 
-Code-block admonition with nested code-block admonition: 
+Code-block admonition with nested code-block admonition:
 
 ```md
 ~~~~ad-note
