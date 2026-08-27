@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.4.15/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.5.1/schema.json",
   "vcs": {
     "enabled": false,
     "clientKind": "git",
@@ -7,7 +7,13 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "includes": ["**", "!**/dist/**/*", "!**/.vscode/**/*", "!**/*.css"]
+    "includes": [
+      "**",
+      "!**/dist/**/*",
+      "!**/.vscode/**/*",
+      "!**/*.css",
+      "!**/*.scss"
+    ]
   },
   "formatter": {
     "enabled": true,
@@ -16,7 +22,7 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true
+      "preset": "recommended"
     }
   },
   "assist": {
