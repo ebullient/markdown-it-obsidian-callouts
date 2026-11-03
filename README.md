@@ -8,10 +8,10 @@ It uses Obsidian default icons and callout flavors out of the gate.
 ## Usage
 
 ```javascript
-const markdownIt = require('markdown-it');
-const mdItObsidianCallouts = require('markdown-it-obsidian-callouts');
+const markdownIt = require("markdown-it");
+const mdItObsidianCallouts = require("markdown-it-obsidian-callouts");
 
-const md = new MarkdownIt()
+const md = new MarkdownIt();
 md.use(mdItObsidianCallouts);
 ```
 
@@ -67,26 +67,26 @@ The above nested admonition will generate the following html (it will sadly be l
 
 ```html
 <div class="callout" data-callout="note">
-  <div class="callout-title">
-    <div class="callout-title-icon">
-      <svg ... class="lucide lucide-pencil"> ... </svg>
-    </div>
-    <div class="callout-title-inner">title</div>
-  </div>
-  <div class="callout-content">
-    <p>Hello World!</p>
-    <div class="callout" data-callout="warning">
-      <div class="callout-title">
+    <div class="callout-title">
         <div class="callout-title-icon">
-          <svg ... class="lucide lucide-alert-triangle"> ... </svg>
+            <svg ... class="lucide lucide-pencil">...</svg>
         </div>
-        <div class="callout-title-inner">a warning</div>
-      </div>
-      <div class="callout-content">
-        <p>This is a nested warning callout</p>
-      </div>
+        <div class="callout-title-inner">title</div>
     </div>
-  </div>
+    <div class="callout-content">
+        <p>Hello World!</p>
+        <div class="callout" data-callout="warning">
+            <div class="callout-title">
+                <div class="callout-title-icon">
+                    <svg ... class="lucide lucide-alert-triangle">...</svg>
+                </div>
+                <div class="callout-title-inner">a warning</div>
+            </div>
+            <div class="callout-content">
+                <p>This is a nested warning callout</p>
+            </div>
+        </div>
+    </div>
 </div>
 ```
 

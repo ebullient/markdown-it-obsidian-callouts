@@ -48,7 +48,6 @@ npm run dev            # Runs Vitest in watch mode
 ### Using VS Code Locally
 
 When developing with VS Code locally:
-
 1. Open the project in VS Code
 2. Navigate to the Explorer view
 3. Find the "NPM SCRIPTS" section in the Explorer
@@ -57,28 +56,27 @@ When developing with VS Code locally:
 ### Running manually
 
 When using GitHub Codespaces or another editor:
-
 1. Install dependencies:
 
-    ```bash
-    npm ci   # Fresh install using package-lock.json
-    # or
-    npm install   # Regular install, may update dependencies
-    ```
+   ```bash
+   npm ci   # Fresh install using package-lock.json
+   # or
+   npm install   # Regular install, may update dependencies
+   ```
 
 2. Run tests in watch mode for active development:
 
-    ```bash
-    npm run dev
-    ```
+   ```bash
+   npm run dev
+   ```
 
 3. Run a full check and build before committing:
 
-    ```bash
-    npm run check   # Verify formatting and linting
-    npm run build   # Build everything
-    npm run test    # Run all tests
-    ```
+   ```bash
+   npm run check   # Verify formatting and linting
+   npm run build   # Build everything
+   npm run test    # Run all tests
+   ```
 
 ## Code Style and Formatting
 
@@ -103,8 +101,8 @@ Use `npm run lint`, `npm run format`, or run biome directly with `npx biome` to 
 4. Run the code checks to ensure formatting and linting (`npm run check`)
 5. Run the build process to ensure everything works (`npm run build`)
 6. Run tests to verify functionality (`npm run test`)
-6. Commit your changes with clear, descriptive commit messages
-7. Push to your fork and submit a pull request
+7. Commit your changes with clear, descriptive commit messages
+8. Push to your fork and submit a pull request
 
 ## Questions?
 
